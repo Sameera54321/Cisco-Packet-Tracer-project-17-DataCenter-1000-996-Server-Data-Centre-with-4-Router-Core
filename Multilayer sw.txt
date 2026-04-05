@@ -1,0 +1,171 @@
+SW 00
+en
+config t
+int range g1/0/7
+int range g1/0/7-8
+no shutdown
+
+
+SW 01
+en
+config t
+int range g1/0/7
+int range g1/0/7-8
+no shutdown
+
+
+
+SVI
+-----------------------
+
+en
+config t
+vlan 10
+name SE_A
+exit
+vlan 20
+name finance
+exit
+vlan 30
+name HR
+exit
+vlan 40
+name Marketting
+exit
+vlan 50
+name Sales
+exit
+vlan 60
+name IT
+exit
+vlan 110
+name server
+exit
+do show vlan brief
+
+
+IP ADRESS ASIGN & do HSRP
+---------------------------
+Switch 01
+-------------
+en
+config t
+
+int vlan 10
+ip address 172.31.0.2 255.255.255.0
+ip helper-address 203.0.115.4
+standby 10 ip 172.31.0.1-----------Gateway Address
+exit
+
+int vlan 20
+ip address 172.31.2.194 255.255.255.192
+ip helper-address 203.0.115.4
+standby 20 ip 172.31.2.193
+exit
+
+int vlan 30
+ip address 172.31.3.2 255.255.255.224
+ip helper-address 203.0.115.4
+standby 30 ip 172.31.3.1
+exit
+
+int vlan 40
+ip address 172.31.1.2 255.255.255.128
+ip helper-address 203.0.115.4
+standby 40 ip 172.31.1.1
+exit
+
+int vlan 50
+ip address 172.31.2.130 255.255.255.192
+ip helper-address 203.0.115.4
+standby 50 ip 172.31.2.129
+exit
+
+int vlan 60
+ip address 172.31.3.66 255.255.255.224
+ip helper-address 203.0.115.4
+standby 60 ip 172.31.3.65
+exit
+
+int vlan 110
+ip address 203.0.115.2 255.255.255.248
+ip helper-address 203.0.115.4
+standby 110 ip 203.0.115.1
+exit
+
+
+switch 2
+-------------------------------
+en
+config t
+
+int vlan 10
+ip address 172.31.0.3 255.255.255.0
+ip helper-address 203.0.115.4
+standby 10 ip 172.31.0.1-----------Gateway Address
+exit
+
+int vlan 20
+ip address 172.31.2.195 255.255.255.192
+ip helper-address 203.0.115.4
+standby 20 ip 172.31.2.193
+exit
+
+int vlan 30
+ip address 172.31.3.3 255.255.255.224
+ip helper-address 203.0.115.4
+standby 30 ip 172.31.3.1
+exit
+
+int vlan 40
+ip address 172.31.1.3 255.255.255.128
+ip helper-address 203.0.115.4
+standby 40 ip 172.31.1.1
+exit
+
+int vlan 50
+ip address 172.31.2.131 255.255.255.192
+ip helper-address 203.0.115.4
+standby 50 ip 172.31.2.129
+exit
+
+int vlan 60
+ip address 172.31.3.67 255.255.255.224
+ip helper-address 203.0.115.4
+standby 60 ip 172.31.3.65
+exit
+
+int vlan 110
+ip address 203.0.115.3 255.255.255.248
+ip helper-address 203.0.115.4
+standby 110 ip 203.0.115.1
+exit
+-------------------------
+Password for Security
+-------------------------
+
+en
+config t
+enable secret     .....pswd
+line con 0
+password
+login          ----pswd
+exit
+exit
+
+-----------------------------
+Encryption Password
+-----------------------------
+en
+conf t
+enable secret ----------pswd
+service password-encryption
+
+
+
+
+
+
+
+
+

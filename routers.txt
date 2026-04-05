@@ -1,0 +1,36 @@
+R2
+----------------
+en 
+conf t
+int range f0/0-1
+no shutdown
+exit
+
+
+int se0/3/0
+no shutdown
+exit
+
+R3
+------------
+en 
+conf t
+int range f0/0-1
+no shutdown
+exit
+
+int se0/3/0
+no shutdown
+exit
+
+
+R4
+------------
+en
+config t
+int se2/0
+no shutdown
+exit
+int se3/0
+no shutdown
+exit

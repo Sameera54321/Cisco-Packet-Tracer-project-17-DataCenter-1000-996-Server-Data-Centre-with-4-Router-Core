@@ -1,0 +1,102 @@
+----------------------------
+SE_A Depatement
+----------------------------
+en
+config t
+vlan 10
+name SE_A
+exit
+do show vlan brief
+
+int range fa0/1-24
+switchport mode access
+switchport access vlan 10
+do show vlan brief
+
+----------------------------
+Finance Department
+----------------------------
+en
+config t
+vlan 20
+name finance
+exit
+do show vlan brief
+
+int range fa0/1-24
+switchport mode access
+switchport access vlan 20
+do show vlan brief
+-----------------------------
+HR
+-----------------------------
+en
+config t
+vlan 30
+name HR
+exit
+do show vlan brief
+
+int range fa0/1-24
+switchport mode access
+switchport access vlan 30
+do show vlan brief
+-------------------------------
+Marketting
+-------------------------------
+
+en
+config t
+vlan 40
+name Marketting
+exit
+do show vlan brief
+
+int range fa0/1-24
+switchport mode access
+switchport access vlan 40
+do show vlan brief
+-------------------------------
+Sales
+-------------------------------
+
+en
+config t
+vlan 50
+name Sales
+exit
+do show vlan brief
+
+int range fa0/1-24
+switchport mode access
+switchport access vlan 50
+do show vlan brief
+--------------------------------
+IT Support
+--------------------------------
+
+en
+config t
+vlan 60
+name IT
+exit
+do show vlan brief
+
+int range fa0/1-24
+switchport mode access
+switchport access vlan 60
+do show vlan brief
+--------------------------------
+server
+--------------------------------
+en
+config t
+vlan 110
+name server
+exit
+do show vlan brief
+
+int range fa0/1-24
+switchport mode access
+switchport access vlan 110
+do show vlan brief
